@@ -5,5 +5,6 @@ v.0.1.0: Create code that displays 3 random symbols pulled from a list of 9 symb
    - List of 9 symbols may increase or decrease in number later.
    - We'll figure out how to determine if user won or lost in a later version.
 
-v.0.1.1: Add code that prompts user to press enter, then displays results, then repeats.
+v.0.1.1: Add code that prompts user to press enter, then displays results.
 
+v.0.1.2: Make the process loop.
