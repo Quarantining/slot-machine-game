@@ -1,7 +1,9 @@
 THIS FILE CONTAINS PROJECT NOTES:
 
-v.0.0.1: Create code that prompts user to press enter, then displays 3 random symbols pulled from a list of 9 symbols.
+v.0.1.0: Create code that displays 3 random symbols pulled from a list of 9 symbols.
    - Use letters as placeholders for symbols. Later they will be changes to images or more descriptive text.
    - List of 9 symbols may increase or decrease in number later.
    - We'll figure out how to determine if user won or lost in a later version.
+
+v.0.1.1: Add code that prompts user to press enter, then displays results, then repeats.
 
