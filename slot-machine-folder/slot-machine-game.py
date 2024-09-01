@@ -1,4 +1,4 @@
-# 0.1.4
+# version 0.1.5
 import random
 import os
 
@@ -16,8 +16,25 @@ def pull_slots(slots): # argument is any list
 
 
 def check_win(result): # checks if result is a win or lose.
-    if all(item == result[0] for item in result): # checks if all itmes are the same as item 0. Itterates through list checking if item is == to item [0].
-        print("You win!")
+    if all(item == result[0] for item in result): # checks if all items are the same as item 0. Itterates through list checking if item is == to item [0].
+        if result[0] == "🍎": # checks which emoji won.
+            print("You win 10$")
+        if result[0] == "🥖":
+            print("You win 100$")
+        if result[0] == "🍒":
+            print("You win 500$")
+        if result[0] == "🍩":
+            print("You win 1000$")
+        if result[0] == "🐘":
+            print("You win 1500$")
+        if result[0] == "🌸":
+            print("You win 2000$")
+        if result[0] == "🍇":
+            print("You win 5000$")
+        if result[0] == "❤️":
+            print("You win 7500$")
+        if result[0] == "🍦":
+            print("You win 10,000$")
     else:
         print("You lose.")
 
