@@ -1,5 +1,9 @@
-# 0.1.2
+# 0.1.3
 import random
+import os
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 # slot machine slots function.
 def pull_slots(slots): # argument is any list
@@ -12,10 +16,14 @@ def pull_slots(slots): # argument is any list
 
 slots = ["A", "B", "C", "D", "E", "F", "G", "H", "I"] # list of possible slots.
 
+print("Press 'ENTER' to Pull Lever!")
+
 while True:
-    user_pull = input("Press 'ENTER' to Pull Lever!") # user input to pull lever
+    user_pull = input("")
+    clear_screen()
 
     if user_pull == "": # if user presses enter key.
+        print("Press 'ENTER' to Pull Lever!")
         pull = pull_slots(slots) # calls function and stores result list as var pull.
         print(pull) # prints pull
 
