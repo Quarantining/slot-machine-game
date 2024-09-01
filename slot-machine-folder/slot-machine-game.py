@@ -14,7 +14,9 @@ def pull_slots(slots): # argument is any list
     return result # returns the empty list (which now contains 3 randomly selected items).
 
 
-slots = ["A", "B", "C", "D", "E", "F", "G", "H", "I"] # list of possible slots.
+#slots = ["A", "B", "C", "D", "E", "F", "G", "H", "I"] # list of possible slots.
+slots = ["🍎", "🥖", "🍒", "🍩", "🐘", "🌸", "🍇", "❤️", "🍦"] # list of possible slots.
+
 
 print("Press 'ENTER' to Pull Lever!")
 
