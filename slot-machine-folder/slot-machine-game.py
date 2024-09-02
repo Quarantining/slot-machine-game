@@ -1,4 +1,4 @@
-# version 0.1.7
+# version 0.1.8
 import random
 import os
 
@@ -9,7 +9,8 @@ def clear_screen(): # function to clear screen.
 def betting(wallet): # takes wallet as argument
     bet_amount = 10
     while True:
-        menu = """- - - - - - - - - - - - - - - - - 
+        menu = """
+- - - - - - - - - - - - - - - - - 
 press 'ENTER' to add 10$
 type 'max' to bet maximum (500$)
 type 'done' to stop betting
@@ -17,12 +18,13 @@ type 'done' to stop betting
 """
         clear_screen()
         print(menu)
+        print(f"Current wager: {bet_amount}")
         amount = input("> ")
 
         if amount == 'done': # tells user current betting amount and ends function
-            clear_screen()
             print(menu)
             print(f"You are currently Betting {bet_amount}$")
+            clear_screen()
             return bet_amount # returns bet_amount
 
         elif bet_amount >= 500: # checks if bet is higher than max (500).
@@ -81,7 +83,7 @@ def check_win(slots_result): # checks if result is a win or lose.
     if all(item == slots_result[0] for item in slots_result): # checks if all items are the same as item 0. Iterates through list checking if item is == to item [0].
         earnings = win_earnings.get(slots_result[0], 0) # sets earnings as int var.
         win_message = f"You won {earnings}$" # prints win message with earnings.
-        return win_message, earnings # returns win_message and earnings.
+        return earnings, win_message # returns win_message and earnings.
     else:
         return 0, "You didn't win." # returns 0$ and tells user they didn't win.
 
@@ -91,18 +93,30 @@ slots = ["🍎", "🥖", "🍒", "🍩", "🐘", "🌸", "🍇", "❤️", "🍦
 wallet = 1000
 bet = 10
 
+# initial print menu
+print(f"""
+- - - - - - - - - - - - - - - - - 
+my wallet: {wallet}
+
+Press 'ENTER' to Pull Lever! 
+Type 'BET' to wager.
+- - - - - - - - - - - - - - - - - 
+    """)
+
+# while loop for main program
 while True:
+
     # updates menu each iteration to ensure wallet is updated.
-    menu = f"""- - - - - - - - - - - - - - - - - 
-    my wallet: {wallet}
+    menu = f"""
+- - - - - - - - - - - - - - - - - 
+my wallet: {wallet}
 
-    Press 'ENTER' to Pull Lever! 
-    Type 'BET' to wager.
-    - - - - - - - - - - - - - - - - - 
-    """
-    print(menu) # prints menu
+Press 'ENTER' to Pull Lever! 
+Type 'BET' to wager.
+- - - - - - - - - - - - - - - - - 
+"""
 
-    user_pull = input("")
+    user_pull = input("> ")
     clear_screen() # clears the screen
     if wallet > 0: # checks if wallet is empty.
 
@@ -119,6 +133,7 @@ while True:
         elif user_pull == "bet": # allows user to wager bet.
             bet = betting(wallet)
             wallet -= bet # updates bet var
+            print(menu)
 
         elif user_pull == "stop": # stops program
             print("Program stopped.")
