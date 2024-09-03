@@ -1,4 +1,4 @@
-# version 0.1.8
+# version 0.1.9
 import random
 import os
 
@@ -16,7 +16,7 @@ type 'max' to bet maximum (500$)
 type 'done' to stop betting
 - - - - - - - - - - - - - - - - - 
 """
-        clear_screen()
+
         print(menu)
         print(f"Current wager: {bet_amount}")
         amount = input("> ")
@@ -42,10 +42,8 @@ type 'done' to stop betting
                 print(f"You are currently Betting {bet_amount}$")
 
             elif amount == "max": # sets bet to 500 when user types 'max'
-                clear_screen()
-                print(menu)
                 bet_amount = 500
-                print(f"You are currently Betting {bet_amount}$")
+                clear_screen()
 
             else: # for errors
                 clear_screen()
@@ -96,12 +94,14 @@ bet = 10
 # initial print menu
 print(f"""
 - - - - - - - - - - - - - - - - - 
-my wallet: {wallet}
+wallet: {wallet}$
 
 Press 'ENTER' to Pull Lever! 
 Type 'BET' to wager.
 - - - - - - - - - - - - - - - - - 
-    """)
+
+['  ', '  ', '  ']
+""")
 
 # while loop for main program
 while True:
@@ -109,11 +109,22 @@ while True:
     # updates menu each iteration to ensure wallet is updated.
     menu = f"""
 - - - - - - - - - - - - - - - - - 
-my wallet: {wallet}
+wallet: {wallet}$
 
 Press 'ENTER' to Pull Lever! 
 Type 'BET' to wager.
 - - - - - - - - - - - - - - - - - 
+"""
+
+    game_over = f"""
+- - - - - - - - - - - - - - - - - 
+You are out of money!
+Current balance {wallet}$
+- - - - - - - - - - - - - - - - - 
+
+
+
+['  ', '  ', '  ']
 """
 
     user_pull = input("> ")
@@ -143,8 +154,7 @@ Type 'BET' to wager.
             print("Unknown Input")
 
     elif wallet <= 0: # if wallet is empty
-        print("You are out of money!")
-        print(f"Current balance {wallet}")
+        print(game_over)
 
     else: # for errors
         print("Error")
